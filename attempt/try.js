@@ -1,3 +1,8 @@
+
+// Definition of block
+const SHA256 = require('crypto-js/sha-256')
+
+
 class Block {
     constructor(timestamp,data){
 	//local of the block in the chain
@@ -14,10 +19,12 @@ class Block {
     }
     
     calculateHash(){
-	
+	return SHA256(this.index + this.previousHash + this.timestamp + this.data + this.nounce).toString();
     }
 
     mineBlock(diffculty){
 	
     }
 }
+
+//The chain !!!
